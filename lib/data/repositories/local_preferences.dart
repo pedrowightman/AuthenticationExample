@@ -48,4 +48,9 @@ class LocalPreferences {
         break;
     }
   }
+
+  Future<bool> containsKey<T>(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.containsKey(key);
+  }
 }

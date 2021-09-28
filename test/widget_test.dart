@@ -59,7 +59,7 @@ void main() {
 
     await tester.enterText(find.byKey(Key('loginEmail')), 'a@a.com');
 
-    await tester.enterText(find.byKey(Key('loginPassord')), '123456');
+    await tester.enterText(find.byKey(Key('loginPassword')), '123456');
 
     await tester.tap(find.byKey(Key('loginSubmit')));
 
@@ -85,7 +85,7 @@ void main() {
 
     await tester.enterText(find.byKey(Key('loginEmail')), 'b@a.com');
 
-    await tester.enterText(find.byKey(Key('loginPassord')), '123456');
+    await tester.enterText(find.byKey(Key('loginPassword')), '123456');
 
     await tester.tap(find.byKey(Key('loginSubmit')));
 
@@ -109,7 +109,7 @@ void main() {
 
     await tester.enterText(find.byKey(Key('signUpEmail')), 'a@a.com');
 
-    await tester.enterText(find.byKey(Key('signUpPassord')), '123456');
+    await tester.enterText(find.byKey(Key('signUpPassword')), '123456');
 
     await tester.tap(find.byKey(Key('signUpSubmit')));
 
@@ -133,7 +133,7 @@ void main() {
 
     await tester.enterText(find.byKey(Key('signUpEmail')), 'b@a.com');
 
-    await tester.enterText(find.byKey(Key('signUpPassord')), '123456');
+    await tester.enterText(find.byKey(Key('signUpPassword')), '123456');
 
     await tester.tap(find.byKey(Key('signUpSubmit')));
 
@@ -158,7 +158,7 @@ void main() {
 
     await tester.enterText(find.byKey(Key('signUpEmail')), 'a');
 
-    await tester.enterText(find.byKey(Key('signUpPassord')), '123456');
+    await tester.enterText(find.byKey(Key('signUpPassword')), '123456');
 
     await tester.tap(find.byKey(Key('signUpSubmit')));
 
