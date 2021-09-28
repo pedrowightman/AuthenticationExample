@@ -6,22 +6,21 @@ class AuthenticationController extends GetxController {
 
   var _logged = false.obs;
 
-  //var _user = "a@a.com".obs;
-
-  //var _password = "123456".obs;
-
   bool get logged => _logged.value;
-  //String get user => _user.value;
-  //String get password => _password.value;
+
+  void setLogged(bool l) {
+    _logged.value = l;
+    update();
+  }
 
   AuthenticationController() {
     init();
   }
 
   void init() async {
-    //await lp.storeData("email", _user.value);
-    //await lp.storeData("password", _password.value);
     _logged.value = await lp.retrieveData<bool>("logged") ?? false;
+    //_logged.value = false;
+    setLogged(false);
   }
 
   Future<bool> registerUser(String user, String pass) async {
@@ -33,13 +32,15 @@ class AuthenticationController extends GetxController {
   Future<bool> login(user, password) async {
     String userT = await lp.retrieveData<String>("email") ?? "";
     String passwordT = await lp.retrieveData<String>("password") ?? "";
-    print("$userT $passwordT $user $password");
+    //print("$userT $passwordT $user $password");
     if (userT == user && passwordT == password) {
       await lp.storeData<bool>("logged", true);
-      _logged.value = true;
+      //_logged.value = true;
+      setLogged(true);
     } else {
       await lp.storeData<bool>("logged", false);
-      _logged.value = false;
+      //_logged.value = false;
+      setLogged(false);
     }
     return Future.value(_logged.value);
   }
@@ -47,11 +48,9 @@ class AuthenticationController extends GetxController {
   Future<bool> signup(user, password) async {
     String userT = await lp.retrieveData<String>("email") ?? "";
     if (userT != user) {
-      //Usuario nuevo, se sobreescribe el actual
-      //_user.value = user;
-      //_password.value = password;
       await registerUser(user, password);
-      _logged.value = false;
+      //_logged.value = false;
+      //setLogged(false);
       return Future.value(true);
     }
 
@@ -60,7 +59,8 @@ class AuthenticationController extends GetxController {
 
   Future<bool> logout() async {
     await lp.storeData<bool>("logged", false);
-    _logged.value = false;
+    //_logged.value = false;
+    setLogged(false);
     return Future.value(true);
   }
 }

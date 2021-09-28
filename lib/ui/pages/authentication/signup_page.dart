@@ -1,5 +1,6 @@
 import 'package:f_authentication_template/domain/controllers/authentication_controller.dart';
 import 'package:f_authentication_template/ui/pages/authentication/login_page.dart';
+import 'package:f_authentication_template/ui/my_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -83,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             if (value) {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('User ok')));
-                              Get.to(() => LoginPage());
+                              Get.back();
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('User problem')));
@@ -104,7 +105,7 @@ class _SignUpPageState extends State<SignUpPage> {
             TextButton(
                 key: Key('signupBackToLogin'),
                 onPressed: () {
-                  Get.to(() => LoginPage());
+                  Get.back();
                 },
                 child: Text("Login"))
           ],

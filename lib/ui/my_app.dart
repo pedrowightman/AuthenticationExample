@@ -6,7 +6,7 @@ import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget {
   @override
-  /*Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     AuthenticationController controller = Get.find<AuthenticationController>();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
@@ -15,30 +15,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         //El sistema debe elegir entre estas dos páginas, si el estado del usuario es logged in
-        //home: Content(),
-        //home: Obx(() => controller.logged ? Content() : LoginPage()));
-        home: GetX<AuthenticationController>(
-          builder: (controller) {
-            if (controller.logged) {
-              return Content();
-            }
-            return LoginPage();
-          }
-        ),
-  }*/
-
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Authentication Flow',
-        themeMode: ThemeMode.system,
-        home: GetX<AuthenticationController>(
-          builder: (controller) {
-            if (controller.logged) {
-              return Content();
-            }
-            return LoginPage();
-          },
-        ));
+        home: Obx(() => controller.logged ? Content() : LoginPage()));
   }
 }
